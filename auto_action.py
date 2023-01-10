@@ -88,13 +88,16 @@ def show_blue_screen():
     注意：blueImg文件夹里只能放图片，不能放别的东西
     """
 
-    def enter():
-        time.sleep(1.5)
-        pyautogui.hotkey("enter")
+    def f():
+        def enter():
+            time.sleep(1.5)
+            pyautogui.hotkey("enter")
 
-    im = Image.open(f"blueImg\\{random.choice(os.listdir('blueImg'))}")
-    threading.Thread(target=enter).start()
-    im.show()
+        im = Image.open(f"blueImg\\{random.choice(os.listdir('blueImg'))}")
+        threading.Thread(target=enter).start()
+        im.show()
+
+    threading.Thread(target=f).start()
 
 
 def show_desktop():
