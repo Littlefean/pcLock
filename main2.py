@@ -1,8 +1,7 @@
-from stageClock import StageClock
-from observer import Observer
-from autoAction import Captor, MouseAction, showBlue
-
 from time import sleep
+from stage_clock import StageClock
+from observer import Observer
+from auto_action import Captor, MouseAction, show_blue_screen
 
 
 def main():
@@ -12,7 +11,7 @@ def main():
     clock = StageClock()
 
     clock.status1_target = mouse.lock
-    clock.status2_target = showBlue
+    clock.status2_target = show_blue_screen
 
     obs = Observer()
 

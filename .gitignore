@@ -2,7 +2,6 @@
 *.spec
 __pycache__
 test.py
-blueImg/*
 result/*
 build
 dist

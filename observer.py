@@ -17,7 +17,6 @@ class Observer:
         self.mouse_click_target = None
         self.mouse_scroll_target = None
         self.mouse_middle_target = None
-        # threading.Thread(target=self.mouse_move_catch).start()
         ...
 
     # def mouse_move_catch(self):
@@ -33,7 +32,6 @@ class Observer:
         def on_move(x, y):
             # 监听鼠标移动
             self.mouse_move_target()
-            # self.mouse_move_target()
 
         def on_click(x, y, button, pressed):
             self.mouse_click_target()
@@ -46,13 +44,13 @@ class Observer:
             print("鼠标滚动了")
             self.mouse_scroll_target()
 
-        def mouseAddHock():
+        def mouse_add_hock():
             """由于以下代码会造成阻塞，所以需要用多线程来开启此函数"""
             with mouse.Listener(on_move=on_move, on_click=on_click, on_scroll=on_scroll) as listener:
                 listener.join()
 
         # 添加鼠标事件刷新
-        threading.Thread(target=mouseAddHock).start()
+        threading.Thread(target=mouse_add_hock).start()
         ...
 
     ...

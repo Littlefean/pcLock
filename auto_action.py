@@ -76,7 +76,7 @@ class MouseAction:
         self.is_lock = False
 
 
-def showBlue():
+def show_blue_screen():
     """
     展示蓝屏
     由于此方法会被阻塞，所以需要以多线程的方式开启此方法
@@ -94,7 +94,7 @@ def showBlue():
     im.show()
 
 
-def desktopAction():
+def show_desktop():
     """桌面图标显示与隐藏的操作
     如果此方法执行两次，相当于没执行，抵消了"""
     pyautogui.hotkey("win", "d")
