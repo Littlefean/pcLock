@@ -24,8 +24,8 @@ class StageClock:
         self.lock_time_2 = t2
         self._t = 0  # 记录已经多少秒没有动弹了
 
-        self.status1_target = None  # 第一阶段到达所触发的动作
-        self.status2_target = None  # 第二阶段到达所触发的动作
+        self.status1_target = lambda: ...  # 第一阶段到达所触发的动作
+        self.status2_target = lambda: ...  # 第二阶段到达所触发的动作
         ...
 
     def get_stage(self):

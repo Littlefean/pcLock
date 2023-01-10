@@ -1,16 +1,14 @@
 """
 检测者
 """
-import time
 
 import threading
 
 from pynput import mouse
-import pyautogui
 
 
 class Observer:
-    """观察者  封装了鼠标和键盘"""
+    """观察者  封装了鼠标"""
 
     def __init__(self):
         self.mouse_move_target = None
@@ -18,15 +16,6 @@ class Observer:
         self.mouse_scroll_target = None
         self.mouse_middle_target = None
         ...
-
-    # def mouse_move_catch(self):
-    #     while True:
-    #         p1 = pyautogui.position()
-    #         time.sleep(0.1)
-    #         p2 = pyautogui.position()
-    #         if p1 != p2:
-    #             self.mouse_move_target()
-    #         time.sleep(1)
 
     def start(self):
         def on_move(x, y):

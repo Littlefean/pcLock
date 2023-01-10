@@ -1,4 +1,3 @@
-from time import sleep
 from stage_clock import StageClock
 from observer import Observer
 from auto_action import Captor, MouseAction, show_blue_screen
@@ -17,10 +16,8 @@ def main():
 
     def move():
         # 别人在动电脑的时候触发这个函数
-        if clock.get_stage() == 1:
-            clock.reset()
-        elif clock.get_stage() == 2:
-            clock.reset()
+        clock.reset()
+        if clock.get_stage() == 2:
             cap.cap_camera()
             cap.cap_screen()
 
@@ -37,9 +34,6 @@ def main():
     obs.start()
 
     clock.start()
-
-    sleep(100000)
-    ...
 
 
 if __name__ == "__main__":

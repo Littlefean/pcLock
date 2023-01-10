@@ -67,7 +67,7 @@ class MouseAction:
         while True:
             if self.is_lock:
                 pyautogui.moveTo(self.SCREEN_WIDTH / 2, self.SCREEN_HEIGHT / 2)
-                time.sleep(0.1)
+            time.sleep(0.1)
 
     def lock(self):
         """执行此方法后会让鼠标吸附在屏幕中央"""
