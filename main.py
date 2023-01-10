@@ -18,10 +18,7 @@ from PIL import ImageGrab
 from pynput import mouse
 import cv2
 
-# from numPrinter import strN
-
 pyautogui.FAILSAFE = False
-
 
 LOCK_SECOND_1 = 60  # 到达第一阶段锁的秒数
 LOCK_SECOND_2 = 600  # 到达第二阶段锁的秒数
@@ -31,6 +28,8 @@ SCREEN_HEIGHT = pyautogui.size().height
 
 SLOW_FREQUENCY = 1
 FAST_FREQUENCY = 0.0000001
+freezeFrequency = SLOW_FREQUENCY
+
 """
 达到第一锁定阶段：
 鼠标一直被吸附在屏幕中央
@@ -42,8 +41,6 @@ isLocked2 = False  # 表示现在是不是已经经过了第二道锁
 
 answer = False  # 是否回答正确
 second = 0  # 记录已经有多少秒没动了
-
-freezeFrequency = SLOW_FREQUENCY
 
 
 def main():
@@ -61,7 +58,7 @@ def main():
     # 鼠标锁开启
     threading.Thread(target=lock1).start()
     # 摄像头刷新开启
-    threading.Thread(target=startCamera, args=(cap, )).start()
+    threading.Thread(target=startCamera, args=(cap,)).start()
     while True:
         # 开启消息事件循环
         if second >= LOCK_SECOND_1:
@@ -132,6 +129,7 @@ def showBlue():
     并将png图片或者jpg图片设置为系统默认打开方式
     注意：blueImg文件夹里只能放图片，不能放别的东西
     """
+
     def enter():
         time.sleep(1.5)
         pyautogui.hotkey("enter")
@@ -179,9 +177,7 @@ def keyboardAddHock():
 
 def mouseAddHock():
     """由于以下代码会造成阻塞，所以需要用多线程来开启此函数"""
-    with mouse.Listener(
-            on_move=on_move, on_click=on_click, on_scroll=on_scroll
-    ) as listener:
+    with mouse.Listener(on_move=on_move, on_click=on_click, on_scroll=on_scroll) as listener:
         listener.join()
 
 
