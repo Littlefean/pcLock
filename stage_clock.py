@@ -14,9 +14,14 @@ class StageClock:
 
     """
 
-    def __init__(self):
-        self.lock_time_1 = 10
-        self.lock_time_2 = 20
+    def __init__(self, t1: int, t2: int):
+        """
+
+        :param t1: 第一阶段时间
+        :param t2: 第二阶段时间
+        """
+        self.lock_time_1 = t1
+        self.lock_time_2 = t2
         self._t = 0  # 记录已经多少秒没有动弹了
 
         self.status1_target = None  # 第一阶段到达所触发的动作

@@ -35,13 +35,11 @@ class Observer:
 
         def on_click(x, y, button, pressed):
             self.mouse_click_target()
-            print("鼠标点击了")
             if button == mouse.Button.middle and pressed:
                 print("鼠标点击了中键！！")
                 self.mouse_middle_target()
 
         def on_scroll(x, y, dx, dy):
-            print("鼠标滚动了")
             self.mouse_scroll_target()
 
         def mouse_add_hock():

@@ -6,9 +6,9 @@ from auto_action import Captor, MouseAction, show_blue_screen
 
 def main():
     mouse = MouseAction()
-    cap = Captor("...", "...")
+    cap = Captor("result", "D:/桌面/grabRes")
 
-    clock = StageClock()
+    clock = StageClock(10, 20)
 
     clock.status1_target = mouse.lock
     clock.status2_target = show_blue_screen

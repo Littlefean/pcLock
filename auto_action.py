@@ -11,11 +11,11 @@ import cv2
 class Captor:
     """捕获者，包涵了截屏和拍照两种功能，用于捕捉“犯罪”证据"""
 
-    def __init__(self, photo_path: str, screen_path):
+    def __init__(self, photo_path: str, screen_path: str):
         """
 
-        :param photo_path:  照片保存路径
-        :param screen_path: 截屏保存路径
+        :param photo_path:  照片保存路径：相对路径
+        :param screen_path: 截屏保存路径：绝对路径
         """
         self.photo_path = photo_path
         self.screen_path = screen_path
@@ -26,13 +26,16 @@ class Captor:
         """截图并保存下来"""
         print("保存了截图")
         screenImg = ImageGrab.grab(bbox=None, include_layered_windows=False, all_screens=True)
-        screenImg.save(f"D:\\桌面\\grabRes\\{self.file_name()}.png")
+        screenImg.save(f"{self.screen_path}/{self.file_name()}.png")
 
     def cap_camera(self):
-        """捕捉摄像头并保存下来"""
+        """
+        捕捉摄像头并保存下来，目前发现摄像头保存的路径只能是相对路径
+        :return:
+        """
         ret, frame = self.cap.read()
         print(f"保存了图{self.file_name()}")
-        cv2.imwrite(f'result\\{self.file_name()}.jpg', frame)  # 这个只能传入相对路径
+        cv2.imwrite(f'{self.photo_path}/{self.file_name()}.jpg', frame)  # 这个只能传入相对路径
 
     @staticmethod
     def file_name():
