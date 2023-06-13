@@ -2,6 +2,16 @@
 
 ---
 
+B站对应链接：
+
+https://www.bilibili.com/video/BV1KM411h7L3/?spm_id_from=333.999.0.0&vd_source=b98966bad03edbeb686fcc182eadb01c
+
+代码仓库地址：
+
+https://gitee.com/littlefean/pc-lock
+
+https://github.com/Littlefean/pcLock
+
 ## 功能介绍
 
 在鼠标和键盘没有操作之后的一段时间锁住电脑，进入第一阶段：锁定阶段
@@ -25,6 +35,23 @@
 
 **如果在伪装蓝屏的阶段移动了鼠标，会开启偷拍，把动你电脑的人偷拍下来，并将图片命名为时间保存到你的电脑里**
 
+## 项目中的文件夹结构说明
+
+```
+D:.
+├─blueImg	1920*1080的蓝屏图片
+├─build		打包文件，忽略
+│  └─main	打包文件，忽略
+├─dist		python打包exe文件
+├─img		项目的图标logo
+├─old		项目早期的时候的样子，现已没用，仅作纪念
+├─result	抓拍的结果
+├─tools		存放一些工具函数和模块
+└─__pycache__	缓存文件，git忽略
+```
+
+
+
 ## 使用条件
 
 windows操作系统，在安装了python的电脑上使用，开发环境 >= 3.7
@@ -46,3 +73,8 @@ windows操作系统，在安装了python的电脑上使用，开发环境 >= 3.7
 
 
 
+## 缺点与新想法
+
+鼠标被锁住在解锁很烦，影响平时写代码的效率。
+
+开个python后端服务器，做个前端打包成app发送网络请求，实现手机控制电脑。
