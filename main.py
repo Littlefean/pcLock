@@ -1,5 +1,4 @@
 from tkinter import *
-
 from stage_clock import StageClock
 from observer import Observer
 from auto_action import Captor, MouseAction, show_blue_screen
